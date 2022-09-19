@@ -1,0 +1,23 @@
+.locationBox {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  font-size: 1.5rem;
+  padding-top: 0.5rem;
+}
+
+.locationInput {
+  width: 400px;
+  padding-top: 0.5rem;
+}
+@media (max-width: 410px) {
+  .locationInput {
+    width: 300px;
+  }
+}
+@media (max-width: 350px) {
+  .locationInput {
+    width: 250px;
+  }
+}

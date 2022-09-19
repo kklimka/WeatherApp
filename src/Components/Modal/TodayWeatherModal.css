@@ -1,0 +1,102 @@
+.modalWrapp {
+  color: white;
+}
+.cardsWeather {
+  display: flex;
+  overflow-x: scroll;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.cardsWeather::-webkit-scrollbar {
+  width: 1px;
+}
+.cardsWeather::-webkit-scrollbar-track {
+  background-color: rgba(33, 29, 29, 0.68);
+  border-radius: 8px;
+  
+}
+.cardsWeather::-webkit-scrollbar-thumb {
+  background-color: rgb(255, 239, 37);
+  border-radius: 8px;
+  border: 3px solid rgba(33, 29, 29, 0.68);
+}
+
+.cardWeather {
+  margin-right: 20px;
+}
+.cardWeatherText {
+  display: flex;
+  justify-content: center;
+}
+.cardWeatherImg {
+  display: flex;
+  justify-content: center;
+}
+.modalImg,
+.modalText {
+  display: flex;
+  justify-content: center;
+  margin: 0.75rem;
+}
+.todayTemperature,
+.todayIndicators,
+.todayMaxTemperature,
+.todayMinTemperature,
+.todayIndicators,
+.todayHam,
+.todayWind {
+  display: flex;
+  justify-content: space-between;
+}
+.todayTemperature,
+.todayIndicators {
+  justify-content: space-around;
+}
+.todayMaxTemperature,
+.todayMinTemperature,
+.todayHam,
+.todayWind {
+  width: 15rem;
+  border-bottom: 1px solid white;
+  margin-top: 1rem;
+}
+.todayMaxTemperatureText,
+.todayMinTemperatureText,
+.todayHamText,
+.todayWindText {
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 620px) {
+  .todayTemperature,
+  .todayIndicators {
+    width: 15rem;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  }
+  .wrapp {
+    width: 15rem;
+    padding-left: 25%;
+  }
+}
+@media (max-width: 530px) {
+  .wrapp {
+    padding-left: 20%;
+  }
+}
+@media (max-width: 465px) {
+  .wrapp {
+    padding-left: 15%;
+  }
+}
+@media (max-width: 410px) {
+  .wrapp {
+    padding-left: 10%;
+  }
+}
+@media (max-width: 355px) {
+  .wrapp {
+    padding-left: 5%;
+  }
+}

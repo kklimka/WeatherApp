@@ -1,0 +1,11 @@
+.weatherCard{
+    margin-right: 2rem;
+    margin-left: 2rem;
+}
+@media (max-width: 350px){
+    .weatherCard{
+        margin-right: 0;
+        margin-left: 0;
+    }
+    
+  }
