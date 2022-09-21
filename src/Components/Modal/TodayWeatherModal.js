@@ -1,9 +1,14 @@
 import ModalWeather from "./Modal";
 import "./TodayWeatherModal.css";
 import icon from "../../assets/icons/01d.svg";
+
+
+
 import { DeviceThermostat, Air, Opacity } from "@mui/icons-material";
+import Icon from '../Icon/Icon'
 
 function TodayWeatherModal({ active, setActive, city }) {
+  
   const getTime = () => {
     const content = [];
     const todayDate = new Date();
@@ -47,25 +52,25 @@ function TodayWeatherModal({ active, setActive, city }) {
     <ModalWeather active={active} setActive={setActive}>
       <div className="modalWrapp">
         <div className="modalImg">
-          <img alt="weather icon" src={icon} height="64px" />
+          <Icon icon={city.weather[0].icon}/>
         </div>
-        <h1 className="modalText">{city}</h1>
+        <h1 className="modalText">{city.name}</h1>
         <h3 className="modalText">Today, 16 September</h3>
-        <h3 className="modalText">Sunny</h3>
-        <h2 className="modalText">15&#176;C</h2>
+        <h3 className="modalText">{city.weather[0].main}</h3>
+        <h2 className="modalText">{Math.trunc(city.main.temp - 273)}&#176;C</h2>
         <div className="wrapp">
         <div className="todayTemperature">
           <div className="todayMaxTemperature">
             <span className="todayMaxTemperatureText">
               <DeviceThermostat /> <span>MAX Temperature</span>
             </span>
-            <span className="todayMaxTemperatureText">17&#176;C</span>
+            <span className="todayMaxTemperatureText">{Math.trunc(city.main.temp_max - 273)}&#176;C</span>
           </div>
           <div className="todayMinTemperature">
             <span className="todayMinTemperatureText">
               <DeviceThermostat /> <span>MIN Temperature</span>
             </span>
-            <span className="todayMinTemperatureText">13&#176;C</span>
+            <span className="todayMinTemperatureText">{Math.trunc(city.main.temp_min - 273)}&#176;C</span>
           </div>
         </div>
         <div className="todayIndicators">
@@ -73,13 +78,13 @@ function TodayWeatherModal({ active, setActive, city }) {
             <span className="todayHamText">
               <Opacity /> <span>Ham</span>
             </span>
-            <span>17 %</span>
+            <span>{city.main.humidity} %</span>
           </div>
           <div className="todayWind">
             <span className="todayWindText">
               <Air /> <span>Wind</span>
             </span>
-            <span>13 km/h</span>
+            <span>{Math.trunc(city.wind.speed * 3.6)} km/h</span>
           </div>
         </div>
         </div>

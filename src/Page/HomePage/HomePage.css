@@ -1,7 +1,8 @@
-.cardsList{
-    height: 70vh;
-    padding-top: 5rem;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
+.cardsList {
+  height: 70vh;
+  padding-top: 5rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
 }
+

@@ -5,7 +5,7 @@ import {
   IconButton, 
 } from "@mui/material";
 import  "./SearchLocation.css";
-import { useState } from 'react'
+import { useState } from 'react';
 function SearchLocation( { addTask }){
   const [userInput, setUserInput] = useState('')
   const handleChange = (e) => {
