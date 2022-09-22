@@ -4,19 +4,15 @@ import WeatherCard from "../../Components/WeatherCards/WeatherCard";
 import "./HomePage.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Loader from "../../Components/Loader/Loader";
 const APIkey = "458e1426f171f3a5b9b842e32522cdba";
 function HomePage() {
   const [cities, setCities] = useState(
     JSON.parse(localStorage.getItem("cities")) || []
   );
-  const [location, setLocation] = useState("");
+ 
   const addTask = (userInput) => {
-    setLocation(userInput);
-  };
-
-  useEffect(() => {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${APIkey}`;
+   
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${userInput}&appid=${APIkey}`;
     axios.get(url).then((res) => {
       if (res.data) {
         const newItem = {
@@ -26,7 +22,10 @@ function HomePage() {
         setCities([...cities, newItem]);
       }
     });
-  }, [location]);
+    
+  };
+
+
 
   useEffect(() => {
     localStorage.setItem("cities", JSON.stringify(cities));
