@@ -55,7 +55,7 @@ function HomePage() {
   return (
     <div className="homePage">
       <Background />
-      <SearchLocation addTask={addCity} />
+      <SearchLocation addCity={addCity} />
       <div className="cardsList">
         {cities.map((city) => {
           return (
