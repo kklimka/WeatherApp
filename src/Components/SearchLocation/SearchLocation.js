@@ -6,7 +6,7 @@ import {
 } from "@mui/material";
 import  "./SearchLocation.css";
 import { useState } from 'react';
-function SearchLocation( { addTask }){
+function SearchLocation( { addCity }){
   const [userInput, setUserInput] = useState('')
   const handleChange = (e) => {
     setUserInput(e.currentTarget.value)
@@ -14,7 +14,7 @@ function SearchLocation( { addTask }){
 
 const handleSubmit = (e) => {
     e.preventDefault()
-    addTask(userInput)
+    addCity(userInput)
     setUserInput("")
 }
 

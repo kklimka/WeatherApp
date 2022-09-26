@@ -13,12 +13,13 @@ import TodayWeatherModal from "../Modal/TodayWeatherModal";
 import "./WeatherCard.css";
 import Icon from "../Icon/Icon"
 
-function WeatherCard({ city, removeTask }) {
+function WeatherCard({ city, removeTask, }) {
   const [modalActive, setModalActive] = useState(false);
   return (
     <div>
       <div onClick={() => setModalActive(true)}>
-        <Card
+        <Card 
+        
           className="weatherCard"
           sx={{
             marginBottom: `2rem`,
