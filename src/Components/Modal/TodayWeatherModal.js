@@ -6,6 +6,7 @@ import icon from "../../assets/icons/01d.svg";
 
 import { DeviceThermostat, Air, Opacity } from "@mui/icons-material";
 import Icon from '../Icon/Icon'
+import TodayData from "../TodayData/TodayData";
 
 function TodayWeatherModal({ active, setActive, city }) {
   
@@ -55,7 +56,7 @@ function TodayWeatherModal({ active, setActive, city }) {
           <Icon icon={city.weather[0].icon}/>
         </div>
         <h1 className="modalText">{city.name}</h1>
-        <h3 className="modalText">Today, 16 September</h3>
+        <TodayData date={city.dt}/>
         <h3 className="modalText">{city.weather[0].main}</h3>
         <h2 className="modalText">{Math.trunc(city.main.temp - 273)}&#176;C</h2>
         <div className="wrapp">
