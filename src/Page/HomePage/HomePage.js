@@ -21,7 +21,6 @@ function HomePage() {
   function Api(userInput) {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${userInput}&appid=${APIkey}`;
     axios.get(url).then((res) => {
-    
       if (res) {
         const newItem = {
           id: res.data.id,
@@ -30,9 +29,6 @@ function HomePage() {
         };
         setCities([...cities, newItem]);
       }
-      
-      
-      
     });
   }
 
@@ -42,12 +38,25 @@ function HomePage() {
     );
     if (result.length > 0) {
       Notiflix.Notify.failure("This city is in the added list");
-
     } else if (result.length === 0) {
       Api(userInput);
     }
-   
-    
+  };
+  const updateCity = (name) => {
+    const indexCity = cities.findIndex((x) => x.name === name);
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=${APIkey}`;
+    axios.get(url).then((res) => {
+      if (res) {
+        const newItem = {
+          id: res.data.id,
+          name: res.data.name,
+          task: res.data,
+        };
+        const update = [...cities];
+        update.splice(indexCity, 1, newItem);
+        setCities(update);
+      }
+    });
   };
 
   console.log(cities);
@@ -63,6 +72,7 @@ function HomePage() {
               city={city.task}
               key={city.id}
               removeTask={removeTask}
+              updateCity={updateCity}
             />
           );
         })}

@@ -13,7 +13,7 @@ import TodayWeatherModal from "../Modal/TodayWeatherModal";
 import "./WeatherCard.css";
 import Icon from "../Icon/Icon"
 
-function WeatherCard({ city, removeTask, }) {
+function WeatherCard({ city, removeTask,updateCity }) {
   const [modalActive, setModalActive] = useState(false);
   return (
     <div>
@@ -104,6 +104,10 @@ function WeatherCard({ city, removeTask, }) {
                     "&:hover": {
                       backgroundColor: `rgb(178 167 25)`,
                     },
+                  }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    return updateCity(city.name);
                   }}
                 >
                   <Update />
