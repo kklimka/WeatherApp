@@ -18,60 +18,60 @@ import d50 from '../../assets/icons/50d.svg';
 import n50 from '../../assets/icons/50n.svg';
 
 
-function Icon({icon}){
+function Icon({icon, height}){
    if(icon === '01d'){
-    return (<img alt="weather icon" src={d01} height="64px" />)
+    return (<img alt="weather icon" src={d01} height={height} />)
    }
    else if(icon === '01n'){
-    return (<img alt="weather icon" src={n01} height="64px" />)
+    return (<img alt="weather icon" src={n01} height={height} />)
    }
    else if(icon === '02d'){
-    return (<img alt="weather icon" src={d02} height="64px" />)
+    return (<img alt="weather icon" src={d02} height={height} />)
    }
    else if(icon === '02n'){
-    return (<img alt="weather icon" src={n02} height="64px" />)
+    return (<img alt="weather icon" src={n02} height={height} />)
    }
    else if(icon === '03d'){
-    return (<img alt="weather icon" src={d03} height="64px" />)
+    return (<img alt="weather icon" src={d03} height={height} />)
    }
    else if(icon === '03n'){
-    return (<img alt="weather icon" src={n03} height="64px" />)
+    return (<img alt="weather icon" src={n03} height={height} />)
    }
    else if(icon === '04d'){
-    return (<img alt="weather icon" src={d04} height="64px" />)
+    return (<img alt="weather icon" src={d04} height={height} />)
    }
    else if(icon === '04n'){
-    return (<img alt="weather icon" src={n04} height="64px" />)
+    return (<img alt="weather icon" src={n04} height={height} />)
    }
    else if(icon === '09d'){
-    return (<img alt="weather icon" src={d09} height="64px" />)
+    return (<img alt="weather icon" src={d09} height={height} />)
    }
    else if(icon === '09n'){
-    return (<img alt="weather icon" src={n09} height="64px" />)
+    return (<img alt="weather icon" src={n09} height={height} />)
    }
    else if(icon === '10d'){
-    return (<img alt="weather icon" src={d10} height="64px" />)
+    return (<img alt="weather icon" src={d10} height={height} />)
    }
    else if(icon === '10n'){
-    return (<img alt="weather icon" src={n10} height="64px" />)
+    return (<img alt="weather icon" src={n10} height={height} />)
    }
    else if(icon === '11d'){
-    return (<img alt="weather icon" src={d11} height="64px" />)
+    return (<img alt="weather icon" src={d11} height={height} />)
    }
    else if(icon === '11n'){
-    return (<img alt="weather icon" src={n11} height="64px" />)
+    return (<img alt="weather icon" src={n11} height={height} />)
    }
    else if(icon === '13d'){
-    return (<img alt="weather icon" src={d13} height="64px" />)
+    return (<img alt="weather icon" src={d13} height={height} />)
    }
    else if(icon === '13n'){
-    return (<img alt="weather icon" src={n13} height="64px" />)
+    return (<img alt="weather icon" src={n13} height={height} />)
    }
    else if(icon === '50d'){
-    return (<img alt="weather icon" src={d50} height="64px" />)
+    return (<img alt="weather icon" src={d50} height={height} />)
    }
    else if(icon === '50n'){
-    return (<img alt="weather icon" src={n50} height="64px" />)
+    return (<img alt="weather icon" src={n50} height={height} />)
    }
 
 }

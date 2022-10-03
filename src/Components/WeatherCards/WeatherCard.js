@@ -13,11 +13,15 @@ import TodayWeatherModal from "../Modal/TodayWeatherModal";
 import "./WeatherCard.css";
 import Icon from "../Icon/Icon"
 
-function WeatherCard({ city, removeTask,updateCity }) {
+function WeatherCard({ city, removeTask, updateCity, idn, futureWeather }) {
   const [modalActive, setModalActive] = useState(false);
   return (
     <div>
-      <div onClick={() => setModalActive(true)}>
+      <div onClick={() => {
+        setModalActive(true);
+        idn(city.name);
+        
+      }}>
         <Card 
         
           className="weatherCard"
@@ -42,7 +46,7 @@ function WeatherCard({ city, removeTask,updateCity }) {
               paddingY: "5px",
             }}
           >
-            <Icon icon={city.weather[0].icon}/> 
+            <Icon icon={city.weather[0].icon} height='64px'/> 
           </CardMedia>
           <CardContent>
             <Stack
@@ -121,6 +125,7 @@ function WeatherCard({ city, removeTask,updateCity }) {
         active={modalActive}
         setActive={setModalActive}
         city={city}
+        futureWeather={futureWeather}
       />
     </div>
   );

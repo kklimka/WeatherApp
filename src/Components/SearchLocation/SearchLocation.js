@@ -7,22 +7,23 @@ import {
 import  "./SearchLocation.css";
 import { useState } from 'react';
 function SearchLocation( { addCity }){
-  const [userInput, setUserInput] = useState('')
+  const [userInput, setUserInput] = useState('');
   const handleChange = (e) => {
-    setUserInput(e.currentTarget.value)
+    setUserInput(e.currentTarget.value);
 }
 
 const handleSubmit = (e) => {
-    e.preventDefault()
-    addCity(userInput)
-    setUserInput("")
+    e.preventDefault();
+    addCity(userInput);
+    setUserInput('');
 }
 
 const handleKeyPress = (e) => {
     if(e.key === "Enter") {
-        handleSubmit(e)
+        handleSubmit(e);
     }
 }
+
     return(
 
         <header className='locationBox'>

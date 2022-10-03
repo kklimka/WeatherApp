@@ -11,9 +11,11 @@ function HomePage() {
   const [cities, setCities] = useState(
     JSON.parse(localStorage.getItem("cities")) || []
   );
+  const [futureWeather, setFutureWeather] = useState([]);
   useEffect(() => {
     localStorage.setItem("cities", JSON.stringify(cities));
   }, [cities]);
+
   const removeTask = (id) => {
     setCities([...cities.filter((city) => city.id !== id)]);
   };
@@ -31,6 +33,7 @@ function HomePage() {
       }
     });
   }
+  
 
   const addCity = (userInput) => {
     const result = cities.filter(
@@ -58,8 +61,20 @@ function HomePage() {
       }
     });
   };
+  const idn = (cityName) => {
+    const url = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${APIkey}`;
+    axios.get(url).then((res) => {
+      if (res) {
+        const newItem = {
+          cityName: res.data.city.name,
+          weatherList: res.data.list,
+        };
+        setFutureWeather([newItem]);
+      }
+    });
+  };
 
-  console.log(cities);
+
 
   return (
     <div className="homePage">
@@ -73,6 +88,8 @@ function HomePage() {
               key={city.id}
               removeTask={removeTask}
               updateCity={updateCity}
+              idn={idn}
+              futureWeather={futureWeather}
             />
           );
         })}
