@@ -22,18 +22,34 @@ function HomePage() {
 
   function Api(userInput) {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${userInput}&appid=${APIkey}`;
-    axios.get(url).then((res) => {
-      if (res) {
-        const newItem = {
-          id: res.data.id,
-          name: res.data.name,
-          task: res.data,
-        };
-        setCities([...cities, newItem]);
-      }
-    });
+    axios
+      .get(url)
+      .then((res) => {
+        if (res) {
+          const newItem = {
+            id: res.data.id,
+            name: res.data.name,
+            task: res.data,
+          };
+          if (cities.length !== 0) {
+            cities.map((city) => {
+              if (city.id === newItem.id) {
+                Notiflix.Notify.failure("This city is in the added list");
+                return false;
+              } else {
+                setCities([...cities, newItem]);
+                return true;
+              }
+            });
+          } else {
+            setCities([...cities, newItem]);
+          }
+        }
+      })
+      .catch((err) => {
+        Notiflix.Notify.failure(err.response.statusText);
+      });
   }
-  
 
   const addCity = (userInput) => {
     const result = cities.filter(
@@ -42,7 +58,9 @@ function HomePage() {
     if (result.length > 0) {
       Notiflix.Notify.failure("This city is in the added list");
     } else if (result.length === 0) {
-      Api(userInput);
+      Boolean(isNaN(userInput))
+        ? Api(userInput)
+        : Notiflix.Notify.failure("Try again");
     }
   };
   const updateCity = (name) => {
@@ -61,7 +79,7 @@ function HomePage() {
       }
     });
   };
-  const idn = (cityName) => {
+  const forecast = (cityName) => {
     const url = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${APIkey}`;
     axios.get(url).then((res) => {
       if (res) {
@@ -73,8 +91,6 @@ function HomePage() {
       }
     });
   };
-
-
 
   return (
     <div className="homePage">
@@ -88,7 +104,7 @@ function HomePage() {
               key={city.id}
               removeTask={removeTask}
               updateCity={updateCity}
-              idn={idn}
+              forecast={forecast}
               futureWeather={futureWeather}
             />
           );
