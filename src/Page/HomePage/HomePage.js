@@ -34,7 +34,7 @@ function HomePage() {
           if (cities.length !== 0) {
             cities.map((city) => {
               if (city.id === newItem.id) {
-                Notiflix.Notify.failure("This city is in the added list");
+                Notiflix.Notify.failure("This city is on the added list");
                 return false;
               } else {
                 setCities([...cities, newItem]);
@@ -56,7 +56,7 @@ function HomePage() {
       (data) => data.name.toLowerCase() === userInput.toLowerCase()
     );
     if (result.length > 0) {
-      Notiflix.Notify.failure("This city is in the added list");
+      Notiflix.Notify.failure("This city is on the added list");
     } else if (result.length === 0) {
       Boolean(isNaN(userInput))
         ? Api(userInput)
@@ -91,6 +91,7 @@ function HomePage() {
       }
     });
   };
+  console.log(cities);
 
   return (
     <div className="homePage">

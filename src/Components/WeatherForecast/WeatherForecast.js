@@ -8,7 +8,7 @@ function WeatherForecast({ futureWeather }) {
       <div className="cardWrapp">
         {weatherForecast.map((e) => {
           const futureDate = e.dt;
-          const rightDate = new Date(futureDate * 1000);
+          const rightDate = new Date(futureDate*1000);
           const rightHours = rightDate.getHours()+'';
           let timeForText;
           if (rightHours.length === 1) {
